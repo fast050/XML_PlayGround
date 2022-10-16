@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="item"
+            type="com.example.xmlplayground.MainScreen" />
+        <variable
+            name="View"
+            type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/TextSytleLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="154dp"
+            android:layout_marginEnd="20dp"
+            android:text="@{item.title}"
+            app:layout_constraintBottom_toBottomOf="@+id/titleLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/titleLabel"
+            app:layout_constraintTop_toTopOf="@+id/titleLabel"
+            tools:text="item title" />
+
+        <TextView
+            android:id="@+id/value"
+            style="@style/TextSytleLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{(item.valueUnit)+' '+Double.toString(item.value)}"
+
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/valueLabel"
+            app:layout_constraintEnd_toEndOf="@id/title"
+            app:layout_constraintStart_toEndOf="@+id/valueLabel"
+            app:layout_constraintTop_toTopOf="@+id/valueLabel"
+            tools:text="AED10.00"
+            tools:visibility="visible" />
+
+
+        <TextView
+            android:id="@+id/subTitle"
+            style="@style/TextSytleLabel"
+            enableTextByNullableValue="@{item.subTitle}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="122dp"
+            android:layout_marginTop="20dp"
+            android:text="@{item.subTitle}"
+            app:layout_constraintBottom_toBottomOf="@+id/subTitleLabel"
+            app:layout_constraintEnd_toEndOf="@id/title"
+            app:layout_constraintStart_toEndOf="@+id/subTitleLabel"
+            app:layout_constraintTop_toBottomOf="@+id/titleLabel"
+            tools:text="Sub Title" />
+
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Click"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/valueLabel"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/titleLabel"
+            style="@style/TextSytleLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Title"
+            app:layout_constraintBottom_toTopOf="@+id/subTitleLabel"
+            app:layout_constraintEnd_toStartOf="@+id/title"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/subTitleLabel"
+            style="@style/TextSytleLabel"
+            enableTextByNullableValue="@{item.subTitle}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Sub Title"
+            app:layout_constraintBottom_toTopOf="@+id/valueLabel"
+            app:layout_constraintEnd_toStartOf="@+id/subTitle"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="@id/titleLabel"
+            app:layout_constraintTop_toBottomOf="@+id/titleLabel"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/valueLabel"
+            style="@style/TextSytleLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="148dp"
+            android:text="value"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintEnd_toStartOf="@+id/value"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="@id/titleLabel"
+            app:layout_constraintTop_toBottomOf="@+id/subTitleLabel"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:visibility="visible" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
